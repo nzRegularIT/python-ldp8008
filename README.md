@@ -6,6 +6,7 @@
 - Cabling
 - 5V power supply for LED Matrix Display, optional [5V 10A Power Supply](http://www.embeddedadventures.com/5v_10amp_power_supply_PWR-5V10A-IEC.html)
 
+```
 Wiring  
 GPIO pin         LDP-8008 pin               Cable colour  
 3  ------------> 2  A  (Row address)        Brown  
@@ -18,6 +19,7 @@ GPIO pin         LDP-8008 pin               Cable colour
 12 ------------> 10 G1 (Green Led)          Grey  
 13 ------------> 14 L  (Latch)              White  
 15 ------------> 16 S  (Shift)              Black  
+```
 
 # Credits
 http://www.embeddedadventures.com/Tutorials/tutorials_detail/184
