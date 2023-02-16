@@ -21,7 +21,49 @@ GPIO pin         LDP-8008 pin               Cable colour
 15 ------------> 16 S  (Shift)              Black  
 ```
 
+#
+```
+$ cat /etc/os-release
+PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+```
+
+Download ldp_8008.tar.gz [Using a 80x8 LED display](https://forums.raspberrypi.com/viewtopic.php?t=67520)
+
+```
+sudo apt install python2.7 python2.7-dev
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+sudo python2.7 get-pip.py
+sudo pip2 install RPi.GPIO
+sudo python2.7 ./scroll "Raspberry Pi" 1
+```
+
+# Slow down scroll speed
+
+```nano ./scroll```
+
+```
+# function to read the matrix array and output the values to the display device
+#
+def showmatrix():
+        ldp.displayoff()
+        time.sleep(.025)
+        for row in reversed(range(8)):
+                for col in reversed(range(80)):
+                        ldp.colourshift(matrix[row][col])
+                ldp.showrow(row)
+# end def
+```
+
+
 # Credits
 http://www.embeddedadventures.com/Tutorials/tutorials_detail/184
 
 https://github.com/nhfruchter/python-ldp8008
+
+https://forums.raspberrypi.com/memberlist.php?mode=viewprofile&u=235265
+
+http://rods-stuff.blogspot.com/2015/04/led-matrix-use-your-old-model-raspberry.html
